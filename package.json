@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/phucks/brnfck#readme",
   "dependencies": {
+    "cli-color": "^1.2.0",
+    "colors": "^1.2.1",
     "typescript": "^2.8.1"
   }
 }

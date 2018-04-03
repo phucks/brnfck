@@ -1,5 +1,5 @@
 # brnfck
-Brainfuck interpreter written in TypeScript
+Brainfuck interpreter written in TypeScript. It interprets vanilla Brainfuck, no fancy stuff!
 
 Usage for ASCII input:
 ```bash
