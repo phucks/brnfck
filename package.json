@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "./node_modules/.bin/tsc -p .",
     "compile:watch": "./node_modules/.bin/tsc -p . -w",
-    "test": "node test.js"
+    "cli": "node src/cli.js",
+    "test": "node src/test.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,13 @@
   },
   "homepage": "https://github.com/phucks/brnfck#readme",
   "dependencies": {
+    "@types/node": "^9.6.2",
     "cli-color": "^1.2.0",
     "colors": "^1.2.1",
+    "commander": "^2.15.1",
     "typescript": "^2.8.1"
+  },
+  "bin": {
+    "brnfck": "./src/brnfck-cli.js"
   }
 }

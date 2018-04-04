@@ -1,16 +1,31 @@
 # brnfck
-Brainfuck interpreter written in TypeScript. It interprets vanilla Brainfuck, no fancy stuff!
+Brainfuck interpreter and cli written in TypeScript. It interprets vanilla Brainfuck, no fancy stuff!
 
-Usage for ASCII input:
+How to install:
 ```bash
-brnfck program.brnfck
-```
-or
-```bash
-brnfck --ascii program.brnfck
+
 ```
 
-Usage for decimal input:
+## How to use it
 ```bash
-brnfck --decimal program.brnfck
+brnfck file.bf
 ```
+With input
+```bash
+brnfck file.bf -i "HELLO"
+```
+Debug mode for more output
+```bash
+brnfck file.bf -i "HELLO" -d
+```
+For everything else, `--help` is your friend
+```bash
+brnfck --help
+```
+
+## Let's talk about speed
+This interpreter is really just a interpreter, no JIT compilation or anything. Because of that it will take e.g. ~1450 seconds for [Mandelbrot](http://esoteric.sange.fi/brainfuck/bf-source/prog/mandelbrot.b) while other implementations only need about 100 seconds for this (tested on my machine).
+
+## Todo for the next releases
+- JIT Compiler
+- Speed optimizations

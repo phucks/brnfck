@@ -1,4 +1,4 @@
-import { BrainfuckInterpreter } from "./interpreter"
+const BrainfuckInterpreter = require("./interpreter").BrainfuckInterpreter
 import "colors"
 
 class BrainfuckTest {

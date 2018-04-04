@@ -1,5 +1,5 @@
 
-class _Tape {
+export class Tape {
     index: number
     tape: number[]
     constructor() {
@@ -32,10 +32,10 @@ class _Tape {
     }
 }
 
-class _BrainfuckInterpreter {
-    tape: _Tape
+export class BrainfuckInterpreter {
+    tape: Tape
     constructor() {
-        this.tape = new _Tape()
+        this.tape = new Tape()
     }
     interpret(code: string, callbackInput: () => number, callbackOutput: (output: number) => void) {
         for (let i: number = 0; i < code.length; i++) {
@@ -56,7 +56,9 @@ class _BrainfuckInterpreter {
                     callbackOutput(this.tape.get())
                     break;
                 case ",":
-                    this.tape.set(callbackInput())
+                    let input = callbackInput()
+                    if (typeof input != "number" || input < 0 || input > 255) throw new Error("Invalid input! Input given was: " + input)
+                    this.tape.set(input)
                     break;
                 case "[":
                     // detect where the loop closes
@@ -77,12 +79,10 @@ class _BrainfuckInterpreter {
                     }
                     i = closePos
                     break;
-                default:
-                    break;
             }
         }
     }
-    interpretSync(code: string, input: number[] | string): number[] {
+    interpretSync(code: string, input: number[] | string | undefined = undefined): number[] {
         let returnArray: number[] = []
         let numberInput: number[]
         let numberInputPos: number = 0
@@ -91,25 +91,27 @@ class _BrainfuckInterpreter {
             for (let i: number = 0; i < input.length; i++) {
                 numberInput.push(input.charCodeAt(i))
             }
+        } else if (input == undefined) {
+            numberInput = []
         } else {
             numberInput = input
         }
         this.interpret(code, function () {
-            return numberInput[numberInputPos++]
+            return numberInput[numberInputPos++] | 0
         }, function (i: number) {
             returnArray.push(i)
         })
         return returnArray
     }
-    interpretSyncReturnAscii(code: string, input: number[] | string): string {
-        let out = this.interpretSync(code, input)
-        let outStr = ""
-        out.forEach(function (item: number) {
-            outStr += String.fromCharCode(item)
-        })
-        return outStr
+    tapeAsArray(): number[] {
+        return this.tape.tape.slice(0)
     }
 }
 
-export const BrainfuckInterpreter = _BrainfuckInterpreter
-export const Tape = _Tape
+export function numberArrayToAsciiString(arr: number[]): string {
+    let str = ""
+    arr.forEach(function (item: number) {
+        str += String.fromCharCode(item)
+    })
+    return str
+}
