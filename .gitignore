@@ -58,7 +58,8 @@ typings/
 .env
 
 # Compiled JavaScript files
-*.js
+src/*.js
+bf-examples/*.js
 
 # Example Brainfuck files which are not mine and because of that I won't commit
 bf-examples/notmine

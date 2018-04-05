@@ -1,10 +1,8 @@
 # brnfck
 Brainfuck interpreter and CLI written in TypeScript. It interprets vanilla Brainfuck, no fancy stuff!
 
-How to install:
-```bash
-
-```
+## How to install:
+Clone this repository, then `npm install`
 
 ## How to use it
 ```bash
@@ -23,9 +21,11 @@ For everything else, `--help` is your friend
 brnfck --help
 ```
 
-## Let's talk about speed
-This interpreter is really just a interpreter, no JIT compilation or anything. Because of that it will take e.g. ~1430 seconds for [Mandelbrot](http://esoteric.sange.fi/brainfuck/bf-source/prog/mandelbrot.b) while other implementations only need about 100 seconds for this (tested on my machine).
+## Under the hood
+This interpreter is compiles the Brainfuck code to JavaScript which will then be run using the `eval` function. At the beginning of this project the code was run with a old style interpreter, it took ~1430 seconds to run [Mandelbrot](http://esoteric.sange.fi/brainfuck/bf-source/prog/mandelbrot.b) now with the compiler it only takes ~60 seconds (tested on my machine).
 
 ## Todo for the next releases
-- JIT Compiler
-- Speed optimizations
+- Read Files to input
+- Input during execution
+- Update code to make it less confusing and more organized
+- Video Driver, so you can program Games in Brainfuck

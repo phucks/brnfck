@@ -1,5 +1,15 @@
+// _____                                _           _  
+// |  __ \                              | |         | |
+// | |  | | ___ _ __  _ __ ___  ___ __ _| |_ ___  __| |
+// | |  | |/ _ \ '_ \| '__/ _ \/ __/ _` | __/ _ \/ _` |
+// | |__| |  __/ |_) | | |  __/ (_| (_| | ||  __/ (_| |
+// |_____/ \___| .__/|_|  \___|\___\__,_|\__\___|\__,_|
+//             | |                                     
+//             |_|                                     
 
-export class Tape {
+
+// Deprecated
+/*export*/ class Tape {
     index: number
     tape: number[]
     constructor() {
@@ -32,7 +42,8 @@ export class Tape {
     }
 }
 
-export class BrainfuckInterpreter {
+//Deprecated
+/*export*/ class BrainfuckInterpreter {
     tape: Tape
     constructor() {
         this.tape = new Tape()
