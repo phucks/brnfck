@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phucks/brnfck.git"
+    "url": "git+https://github.com/tobiasholler/brnfck.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/phucks/brnfck/issues"
+    "url": "https://github.com/tobiasholler/brnfck/issues"
   },
-  "homepage": "https://github.com/phucks/brnfck#readme",
+  "homepage": "https://github.com/tobiasholler/brnfck#readme",
   "dependencies": {
     "@types/node": "^9.6.2",
     "cli-color": "^1.2.0",
