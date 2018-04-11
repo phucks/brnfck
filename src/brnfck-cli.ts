@@ -49,9 +49,19 @@ if (program.compile != undefined) { // Compile to file
             out.push(byte)
         })
         let numberInput: number[] = []
-        for (let i: number = 0; i < program.input.length; i++) {
-            numberInput.push(program.input.charCodeAt(i))
+        if (program.input != undefined) {
+            for (let i: number = 0; i < program.input.length; i++) {
+                numberInput.push(program.input.charCodeAt(i))
+            }
         }
+        let tapeLength: number = 1
+        for (let i = tape.length-1; i >= 0; i--) {
+            if (tape[i] != 0) {
+                tapeLength = i+1
+                break;
+            }
+        }
+        tape = tape.slice(0, tapeLength)
         console.log("Tape:")
         console.log(tape.toString())
         console.log("Output ASCII:")
