@@ -3,7 +3,7 @@ Brainfuck interpreter and CLI written in TypeScript. It interprets vanilla Brain
 
 ## How to install:
 ```bash
-npm install https://github.com/tobiasholler/brnfck.git
+npm install -g https://github.com/tobiasholler/brnfck.git
 ```
 
 ## How to use it
